@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import type { GetAllContacts, CreateContact } from "~/routes/contacts.enum";
+import type { CreateContact, UpdateContact } from "~/routes/contacts.enum";
 
 const db = new PrismaClient();
 
@@ -24,7 +24,7 @@ export const createContact = async (contact: CreateContact) => {
   }
 };
 
-export const updateContact = async (id: number, contact: GetAllContacts) => {
+export const updateContact = async (id: number, contact: UpdateContact) => {
   return await db.contactList.update({
     where: {
       id,
